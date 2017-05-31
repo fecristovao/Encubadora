@@ -1,6 +1,6 @@
 class ControladorController < ApplicationController
 	def index
-		@dados = Dado.all.order('created_at DESC')
+		@dados = Dado.all.order('created_at DESC').where(:created_at => Date.today..Date.today+1.day)
 		@temperaturas = {}
 		@umidades = {}
 
@@ -8,6 +8,21 @@ class ControladorController < ApplicationController
 			@temperaturas[data.created_at] = data.temperatura
 			@umidades[data.created_at] = data.umidade
 		end
+	end
+
+	def day
+		data = Date.parse("#{params[:year]}-#{params[:month]}-#{params[:day]}")
+		puts data
+		@dados = Dado.all.order('created_at DESC').where(:created_at => data..data+1.day)
+		@temperaturas = {}
+		@umidades = {}
+
+		@dados.each do |data|
+			@temperaturas[data.created_at] = data.temperatura
+			@umidades[data.created_at] = data.umidade
+		end
+
+		render :index
 	end
 
 	def list
