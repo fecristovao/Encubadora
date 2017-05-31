@@ -1,10 +1,10 @@
 %center
 	%h1
 		Temperatura
-= area_chart @temperaturas
+= line_chart @dados[:temperatura]
 
 
 %center
 	%h1
 		Umidade
-= area_chart @umidades
+= line_chart @dados[:umidade]
