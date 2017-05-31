@@ -12,13 +12,10 @@ class ControladorController < ApplicationController
 		}
 
 
-
-		@grupo = @dados.group_by_minute(:created_at)
-		puts @grupo.count
-
 		@temperaturas = {}
 		@umidades = {}
-		@grupo.each do |data|
+
+		@dados.each do |data|
 			@temperaturas[data.created_at] = data.temperatura
 			@umidades[data.created_at] = data.umidade
 		end
