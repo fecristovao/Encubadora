@@ -1,10 +1,10 @@
 %center
 	%h1
 		Temperatura
-= line_chart @dados[:temperatura], xtitle: "", ytitle: "º C", label: "Temperatura", min: @dados[:temperatura].values.min-0.1, max: @dados[:temperatura].values.max+0.1
+= area_chart @dados[:temperatura], xtitle: "", ytitle: "º C", label: "Temperatura", min: @dados[:temperatura].values.min-0.1, max: @dados[:temperatura].values.max+0.1
 
 
 %center
 	%h1
 		Umidade
-= line_chart @dados[:umidade], xtitle: "", ytitle: "%", label: "Umidade", min: @dados[:umidade].values.min-0.1, max: @dados[:umidade].values.max+0.1
+= area_chart @dados[:umidade], xtitle: "", ytitle: "%", label: "Umidade", min: @dados[:umidade].values.min-0.1, max: @dados[:umidade].values.max+0.1
