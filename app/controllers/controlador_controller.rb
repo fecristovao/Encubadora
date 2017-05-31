@@ -62,9 +62,9 @@ class ControladorController < ApplicationController
 			
 			if (ano!=0 && mes!=0 && dia!=0)
 				data = Date.parse("#{ano}-#{mes}-#{dia}")
-				dados = Dado.all.order('created_at DESC').where(:created_at => data..data+	1.day)
+				dados = Dado.where(:created_at => data..data+	1.day)
 			else
-				dados = Dado.all.order('created_at DESC').where(:created_at => Date.today..Date.today+1.day)
+				dados = Dado.where(:created_at => Date.today..Date.today+1.day)
 			end
 
 			temperaturas = {}
