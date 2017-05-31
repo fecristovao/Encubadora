@@ -10,6 +10,11 @@ end
 gem 'rails', '~> 5.0.3'
 #Slim
 gem 'haml'
+gem 'chronic'
+#GROUPDATE
+gem 'groupdate'
+#ChartKick
+gem 'chartkick'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
