@@ -3,17 +3,24 @@ class ControladorController < ApplicationController
 		@dados = Dado.all.order('created_at DESC').where(:created_at => Date.today..Date.today+1.day)
 		@temperaturas = {}
 		@umidades = {}
-
+		anterior_t = 0
+		anterior_u = 0
 		@dados.each do |data|
-			@temperaturas[data.created_at] = data.temperatura
-			@umidades[data.created_at] = data.umidade
+			if anterior_t != data.temperatura
+				@temperaturas[data.created_at] = data.temperatura
+				anterior_t = data.temperatura
+			end
+			if anterior_u != data.umidade
+				@umidades[data.created_at] = data.umidade
+				anterior_u = data.umidade
+			end
 		end
 	end
 
 	def day
 		data = Date.parse("#{params[:year]}-#{params[:month]}-#{params[:day]}")
 		puts data
-		@dados = Dado.all.order('created_at DESC').where(:created_at => data..data+1.day)
+		@dados = Dado.all.order('created_at DESC').where(:created_at => data..data+	1.day)
 		@temperaturas = {}
 		@umidades = {}
 
