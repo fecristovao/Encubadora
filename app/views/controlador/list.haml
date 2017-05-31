@@ -1,7 +1,10 @@
 %table
+	= Time.now
 	- @dados.each do |dado|
 		%tr
 			%td
 				= dado.temperatura
 			%td
 				= dado.umidade
+			%td
+				= dado.created_at
