@@ -16,8 +16,10 @@ class ControladorController < ApplicationController
 		@umidades = {}
 
 		@dados.each do |data|
-			@temperaturas[data.created_at] = data.temperatura
-			@umidades[data.created_at] = data.umidade
+			atual = data.created_at
+			atual = atual.strftime("%d/%m/%y")
+			@temperaturas[data.created_at] = "#{data.temperatura} C"
+			@umidades[data.created_at] = "#{data.umidade} %"
 		end
 
 
