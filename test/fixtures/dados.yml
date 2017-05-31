@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperatura: 1.5
+  umidade: 1.5
+
+two:
+  temperatura: 1.5
+  umidade: 1.5
