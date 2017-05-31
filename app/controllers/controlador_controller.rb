@@ -1,7 +1,7 @@
 class ControladorController < ApplicationController
 	def list
 		#Dado.get_dados
-		@dados = Dado.all
+		@dados = Dado.all.order('created_at DESC')
 		@atr = {
 			:max_t => 0,
 			:min_t => 999,
