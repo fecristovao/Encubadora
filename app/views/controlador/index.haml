@@ -1,10 +1,10 @@
 %center
 	%h1
 		Temperatura
-= line_chart @dados[:temperatura]
+= line_chart @dados[:temperatura], xtitle: "", ytitle: "º C", label: "Temperatura"
 
 
 %center
 	%h1
 		Umidade
-= line_chart @dados[:umidade]
+= line_chart @dados[:umidade], xtitle: "", ytitle: "%", label: "Umidade"
