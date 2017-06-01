@@ -72,11 +72,11 @@ class ControladorController < ApplicationController
 			anterior_t = 0
 			anterior_u = 0
 			dados.each do |data|
-				if anterior_t != data.temperatura || data == dados.last
+				if (anterior_t != data.temperatura && data.temperatura > 0) || data == dados.last
 					temperaturas[data.created_at] = data.temperatura
 					anterior_t = data.temperatura
 				end
-				if anterior_u != data.umidade || data == dados.last
+				if (anterior_u != data.umidade && data.umidade > 0) || data == dados.last
 					umidades[data.created_at] = data.umidade
 					anterior_u = data.umidade
 				end
