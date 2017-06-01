@@ -1,0 +1,31 @@
+%table
+	- @dados.each do |dado|
+		%tr
+			%td
+				= dado.temperatura
+			%td
+				= dado.umidade
+			%td
+				= dado.created_at
+%br
+%br
+%table
+	%tr
+		%td
+			= @atr[:min_t]
+		%td
+			= @atr[:max_t]
+	%tr
+		%td
+			= @atr[:min_u]
+		%td
+			= @atr[:max_u]
+	%tr
+		%td
+			= @atr[:media_t]
+		%td
+			= @atr[:media_u]
+
+%br
+
+

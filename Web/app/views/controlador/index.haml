@@ -1,0 +1,15 @@
+%center
+	%h1
+		Temperatura
+		- if !@dados[:temperatura].empty?
+			= area_chart @dados[:temperatura], xtitle: "", ytitle: "º C", label: "Temperatura", min: @dados[:temperatura].values.min-1, max: @dados[:temperatura].values.max+1
+		- else
+			= area_chart @dados[:temperatura], xtitle: "", ytitle: "º C", label: "Temperatura"
+
+%center
+	%h1
+		Umidade
+		- if !@dados[:umidade].empty?
+			= area_chart @dados[:umidade], xtitle: "", ytitle: "%", label: "Umidade", min: @dados[:umidade].values.min-1, max: @dados[:umidade].values.max+1
+		- else
+			= area_chart @dados[:umidade], xtitle: "", ytitle: "%", label: "Umidade"
