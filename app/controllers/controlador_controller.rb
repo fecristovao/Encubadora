@@ -89,9 +89,4 @@ class ControladorController < ApplicationController
 
 			return retorno
 		end
-
-		def intervalos(data)
-			
-
-		end
 end
