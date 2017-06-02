@@ -1,11 +1,21 @@
-require 'net/http'
+require 'date'
+require 'chronic'
+require 'pp'
 
-url = URI.parse('http://casardo.ddns.net:8080')
-pagina = Net::HTTP.get(url)
+temperaturas = {}
+for i in 0..10
+	hora = Time.now + i*60*60	
+	temperaturas[hora] = i
+end
 
+variacao = {}
 
-pagina = pagina.scan(/<br\/>Atual: (.*?)<br\/>/)
+pp temperaturas
 
-		
-pagina[0] = pagina[0].to_s.gsub!('["', "").gsub!('"]', "").gsub(" C", "")
-pagina[1] = pagina[1].to_s.gsub!('["', "").gsub!('"]', "").gsub(" %", "")
+for i in 1..temperaturas.size-1
+	 data = temperaturas.keys[i]
+	 temperatura = temperaturas.values[i] - temperaturas.values[i-1]
+	 variacao[data] = temperatura
+end
+
+pp variacao

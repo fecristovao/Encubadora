@@ -82,9 +82,27 @@ class ControladorController < ApplicationController
 				end
 			end
 
+			var_temp = {}
+
+			for i in 1..temperaturas.size-1
+				temp = temperaturas.values[i] - temperaturas.values[i-1]
+				data = temperaturas.keys[i]
+				var_temp[data] = temp
+			end
+
+			var_umidade = {}
+
+			for i in 1..umidades.size-1
+				umidade = umidades.values[i] - umidades.values[i-1]
+				data = umidades.keys[i]
+				var_umidade[data] = data
+			end
+
 			retorno = {
 				:temperatura => temperaturas,
-				:umidade => umidades
+				:umidade => umidades,
+				:var_temperatura => var_temp,
+				:var_umidade => var_temp
 			}
 
 			return retorno

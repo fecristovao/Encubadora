@@ -13,3 +13,23 @@
 			= area_chart @dados[:umidade], xtitle: "", ytitle: "%", label: "Umidade", min: @dados[:umidade].values.min-1, max: @dados[:umidade].values.max+1
 		- else
 			= area_chart @dados[:umidade], xtitle: "", ytitle: "%", label: "Umidade"
+
+%br
+%br
+%center
+	%h1
+		Variação de Temperatura
+		- if !@dados[:var_temperatura].empty?
+			= area_chart @dados[:var_temperatura], xtitle: "", ytitle: "ºC", label: "Variação de Temperatura", min: @dados[:var_temperatura].values.min-1, max: @dados[:var_temperatura].values.max+1
+		- else
+			= area_chart @dados[:var_temperatura], xtitle: "", ytitle: "ºC", label: "Variação de Temperatura"
+
+%br
+%br
+%center
+	%h1
+		Variação de Umidade
+		- if !@dados[:var_umidade].empty?
+			= area_chart @dados[:var_umidade], xtitle: "", ytitle: "%", label: "Variação de Umidade", min: @dados[:var_umidade].values.min-1, max: @dados[:var_umidade].values.max+1
+		- else
+			= area_chart @dados[:var_umidade], xtitle: "", ytitle: "%", label: "Variação de Umidade"
